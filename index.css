@@ -1,0 +1,29 @@
+html{
+  background-color: aquamarine;
+}
+
+body{
+  width:100%; /*ページ全体の幅は100%と指定*/	
+  text-align:left;
+}
+
+.companyName{
+  text-align:center;
+}
+
+.start{
+  width:100%;
+  text-align:center;
+  display: none;
+}
+
+.table{
+  /* display: block; */
+  background-color: azure;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.date{
+  text-align: right;
+}
