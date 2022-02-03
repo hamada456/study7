@@ -1,32 +1,27 @@
 (() => {
 
+    const $doc = document;
+    const $table = document.getElementsByClassName('table');
+
     getJSON();
-
-    //document.getElementsByTagName("th")[0].textContent = employee.employee[0].name
-    //document.getElementsByTagName("th")[1].textContent = employee.employee[0].status
-
-    let $table = document.getElementsByClassName('table');
-    let newTh = document.createElement("th");
-    let newTr = document.createElement("tr");
-    //newTr.textContent = employee.employee[1].name;
-
-    //tr01
-    $table[0].appendChild(newTr);
-    //th
-    document.getElementsByClassName("table")[0].lastElementChild.appendChild(newTh);
-    document.querySelector("body > table > tr > th").textContent = employee.employee[0].name;
-    //th
-    document.getElementsByClassName("table")[0].lastElementChild.appendChild(newTh);
-    document.querySelector("body > table > tr > th:nth-child(2)").textContent = employee.employee[0].status;
     
-    //tr01
-    $table[0].appendChild(newTr);
-    //th
-    document.getElementsByClassName("table")[0].lastElementChild.appendChild(newTh);
-    document.querySelector("body > table > tr > th").textContent = employee.employee[1].name;
-    //th
-    document.getElementsByClassName("table")[0].lastElementChild.appendChild(newTh);
-    document.querySelector("body > table > tr > th:nth-child(2)").textContent = employee.employee[1].status;
+    //社員の数だけループ
+    for ( index = 0 ; employee.employee.length > index ; index++ ) {
+        let thElementEndNum = document.querySelectorAll("th").length;
+        let trElementEndNum = document.querySelectorAll("tr").length;
+        let newTh = document.createElement("th");
+
+        //tr001、大枠を作成
+        $table[0].appendChild(document.createElement("tr"));
+        //th1、枠を作成
+        document.getElementsByClassName("table")[0].lastElementChild.appendChild(newTh);
+        //名前を代入
+        document.querySelectorAll("th")[thElementEndNum].textContent = employee.employee[index].name;
+        //th2、枠を作成
+        document.querySelectorAll("tr")[trElementEndNum].lastElementChild.after(document.createElement("th"));
+        //状態を代入
+        document.querySelectorAll("th")[thElementEndNum + 1].textContent = employee.employee[index].status;
+    }
 
     function getJSON() {
         // XMLHttpRequest オブジェクトを生成する
@@ -37,7 +32,5 @@
         // JSON のデータ数分処理、値を返す
         employee = JSON.parse(req.responseText);
     }
-
-    //window.open("",width=50 ,heigth=50);
 
 })();
