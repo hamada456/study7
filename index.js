@@ -2,19 +2,23 @@
 
     getJSON();
 
-    let $table = document.getElementsByClassName('table');
-    let newTh = document.createElement("th");
-    let newTr = document.createElement("tr");
+    const $table = document.getElementsByClassName('table');
+    const newTh = document.createElement("th");
+    const newTr = document.createElement("tr");
+    let thElementNum = document.querySelectorAll("th").length -1
+    let trElementNum = document.querySelectorAll("tr").length -1
 
-    for(index = 0 ; employee.employee.length > index ; index++ ){
-    //tr001
-    $table[0].appendChild(document.createElement("tr"));
-    //th1
-    document.getElementsByClassName("table")[0].lastElementChild.appendChild(document.createElement("th"));
-    document.querySelectorAll("th")[document.querySelectorAll("th").length -1].textContent = employee.employee[index].name;
-    //th2
-    document.querySelectorAll("tr")[document.querySelectorAll("tr").length -1].lastElementChild.after(document.createElement("th"));
-    document.querySelectorAll("th")[document.querySelectorAll("th").length -1].textContent = employee.employee[index].status;
+    for( index = 0 ; employee.employee.length > index ; index++ ){
+        //tr001、大枠を作成
+        $table[0].appendChild(document.createElement("tr"));
+        //th1、枠を作成
+        document.getElementsByClassName("table")[0].lastElementChild.appendChild(document.createElement("th"));
+        //名前を代入
+        document.querySelectorAll("th")[document.querySelectorAll("th").length -1].textContent = employee.employee[index].name;
+        //th2、枠を作成
+        document.querySelectorAll("tr")[document.querySelectorAll("tr").length -1].lastElementChild.after(document.createElement("th"));
+        //状態を代入
+        document.querySelectorAll("th")[document.querySelectorAll("th").length -1].textContent = employee.employee[index].status;
     }
 
     function getJSON() {
