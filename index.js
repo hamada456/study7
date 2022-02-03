@@ -11,22 +11,14 @@
     //newTr.textContent = employee.employee[1].name;
 
     //tr01
-    $table[0].appendChild(newTr);
+    $table[0].appendChild(document.createElement("tr"));
     //th
-    document.getElementsByClassName("table")[0].lastElementChild.appendChild(newTh);
-    document.querySelector("body > table > tr > th").textContent = employee.employee[0].name;
+    document.getElementsByClassName("table")[0].lastElementChild.appendChild(document.createElement("th"));
+    document.querySelectorAll("th")[document.querySelectorAll("th").length -1].textContent = employee.employee[0].name;
     //th
-    document.getElementsByClassName("table")[0].lastElementChild.appendChild(newTh);
-    document.querySelector("body > table > tr > th:nth-child(2)").textContent = employee.employee[0].status;
+    document.getElementsByClassName("table")[0].lastElementChild.appendChild(document.createElement("th"));
+    document.querySelectorAll("th")[document.querySelectorAll("th").length -1].textContent = employee.employee[0].status;
     
-    //tr01
-    $table[0].appendChild(newTr);
-    //th
-    document.getElementsByClassName("table")[0].lastElementChild.appendChild(newTh);
-    document.querySelector("body > table > tr > th").textContent = employee.employee[1].name;
-    //th
-    document.getElementsByClassName("table")[0].lastElementChild.appendChild(newTh);
-    document.querySelector("body > table > tr > th:nth-child(2)").textContent = employee.employee[1].status;
 
     function getJSON() {
         // XMLHttpRequest オブジェクトを生成する
